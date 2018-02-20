@@ -1,0 +1,156 @@
+Introdcution to Go
+
+* About me
+- ca. 2 Jahre Android App Dev AppsFactory Leipzig
+- ca. 1 Jahr Android bei DaWanda Berlin
+- seit ca. 1,5 Jahren Go vom Hobby zum production Code
+
+* Go schnelle Fakten
+- 2009 released von Robert Griesemer, Rob Pike und Ken Thompson
+- Wieso? Unzufriedenheit mit C++ und Java in Punkto Concurrency und Compiletimes
+- Ziel: C Performance ohne die Nachteile
+- static type system, GC, C-like Syntax, Concurrency als "primitive" in der Sprache integriert
+- Benötigt keine Laufzeitumgebung (z.B. JVM)
+- Compiliert zu _staticly_linked_binary_ mit der Möglichkeit des Crosscompiling (z.B. auf Linux für Windows)
+- Versprechen keine Änderungen an der Sprache in Version 1.x
+
+* Projekte in Go
+Go ist zur Zeit die _Cloud_Native_Sprache_ der Wahl
+Projekte:
+- Kubernetes (Cluster Management)
+- Prometheus (Monitoring)
+- etcd (KV Store)
+- Docker
+- Grafana (Dashboards)
+- InfluxDB (Timeseries DB)
+- CockroachDB (Sql DB)
+
+und viele mehr...
+
+* Go Tool
+- get - dependency von diesem repo (master) in den GOPATH laden
+    $ go get github.com/panzerdev/softwarekammer-go
+- fmt - wendet den default Code Style an
+    $ go fmt main.go
+- run - führt angegebene Datei aus
+    $ go run main.go
+- build - baut Executable in akuellen Verzeichnis
+    $ go build
+    # Crosscompiling
+    $ env GOOS=windows GOARCH=amd64 go build # win 64bit
+    $ env GOOS=linux GOARCH=arm GOARM=5 go build # raspi 32bit
+
+* Hello World
+.play hello/hello-world.go
+
+Packages:
+Code kann in Packages zusammengefasst werden.
+Ein Package is ein Ordner mit 1 bis n Files
+Der Ordnername und des in den Files definierte package müssen gleich sein
+
+`/project/main.go`
+`/project/dbh/db_read.go`
+.code hello/dbh/db_pkg.go
+
+
+* Hello World - Packages
+.play hello/hello-world-db.go /START OMIT/,/END OMIT/
+
+Packages:
+- In einem Package hat Code auf einander Zugriff
+- Nach außen kann der Zugriff erlaubt sein (exported) oder nicht
+- Der erste Buchstabe einer `func` definiert ob diese exported ist oder nicht
+
+.code hello/dbh/db_read.go /START OMIT/,/END OMIT/
+
+* Hello World - Packages
+.play hello/hello-world-import.go /START OMIT/,/END OMIT/
+
+Import
+- Import Path bezieht sich auf das Package im GOPATH
+- Nicht genutzte Importe verhindern die Kompilierung
+
+.play hello/hello-world-import-wrong.go
+
+
+* Build-in types
+
+    bool
+
+    string
+
+    int  int8  int16  int32  int64
+    uint uint8 uint16 uint32 uint64 uintptr
+
+    byte // alias for uint8
+
+    rune // alias for int32
+         // represents a Unicode code point
+
+    float32 float64
+
+    complex64 complex128
+
+
+* Variables
+.play types/var.go
+- Nicht genutzte Variables verhindern die Kompilierung
+
+* Functions
+.play types/func.go
+
+* Closures
+.play types/func_c.go
+
+* Structs
+.play types/structs.go
+
+* Pointer
+.play types/pointer.go
+
+* Array
+.play types/array.go
+Arrays sind fixed size
+
+* Slices
+.play types/slice.go
+
+* Slices
+.play types/slice_passing.go
+
+* Slices Structs
+.play types/slice_structs.go
+
+* Slices Structs Pointer
+.play types/slice_structs_pointer.go
+
+* For
+.play control/iter.go
+
+* For range
+.play control/range.go
+
+* If
+.play control/if.go
+
+* Switch
+.play control/switch.go
+
+* Maps
+.play types/maps_1.go
+
+* Maps
+.play types/maps_2.go
+
+* Errors
+.play -edit types/errors.go
+- Niemals Fehler ignorieren
+- Fehler sind ein ganz normaler Wert
+- Fehler sind normalerweise der letzte Rückgabewert
+- Early exit not - Happy path if-Spaghetti <<---- WHAT?
+
+* Errors
+.play types/errors_if.go /START OMIT/,/END OMIT/
+
+#* Edit Run code?
+#.play -edit types/structs.go
