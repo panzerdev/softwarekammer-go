@@ -152,5 +152,11 @@ Arrays sind fixed size
 * Errors
 .play types/errors_if.go /START OMIT/,/END OMIT/
 
+* Methods
+.play interfaces/methods.go /START OMIT/,/END OMIT/
+
+* Interface
+.play -edit interfaces/animal.go /START OMIT/,/END OMIT/
+
 #* Edit Run code?
 #.play -edit types/structs.go
