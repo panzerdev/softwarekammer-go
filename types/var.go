@@ -16,5 +16,5 @@ func main() {
 	var c = 1     // set to 1 and infer type from 1 (int)
 	d := 1        // set to 1 and infer type from 1 (int)
 
-	j, k, l := 1, false, "k is great" // set to 1 and infer type from 1 (int)
+	j, k, l := 1, false, "l is great" // set to 1 and infer type from 1 (int)
 }

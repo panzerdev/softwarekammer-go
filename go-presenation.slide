@@ -59,7 +59,7 @@ Der Ordnername und des in den Files definierte package müssen gleich sein
 Packages:
 - In einem Package hat Code auf einander Zugriff
 - Nach außen kann der Zugriff erlaubt sein (exported) oder nicht
-- Der erste Buchstabe einer `func` definiert ob diese exported ist oder nicht
+- Der erste Buchstabe einer `func` oder `var` definiert ob diese exported ist oder nicht
 
 .code hello/dbh/db_read.go /START OMIT/,/END OMIT/
 
