@@ -158,5 +158,29 @@ Arrays sind fixed size
 * Interface
 .play -edit interfaces/animal.go /START OMIT/,/END OMIT/
 
+* Let's Go
+.play -edit concurrency/go_1.go
+
+* Let's Go.. Wait..
+.play -edit concurrency/go_2.go
+
+* Let's Go.. Wait..
+.play -edit concurrency/go_3.go
+
+* WaitGroup
+.play -edit concurrency/go_4.go /START OMIT/,/END OMIT/
+
+* Mutex
+.play -edit concurrency/go_4_mutex.go /START OMIT/,/END OMIT/
+
+* Channels
+.play -edit concurrency/go_5.go /START OMIT/,/END OMIT/
+
+* Select Channels
+.play -edit concurrency/go_6.go /START OMIT/,/END OMIT/
+
+* Collector
+.play -edit concurrency/go_7.go /START OMIT/,/END OMIT/
+
 #* Edit Run code?
 #.play -edit types/structs.go
