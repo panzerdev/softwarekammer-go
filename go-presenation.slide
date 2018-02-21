@@ -182,5 +182,8 @@ Arrays sind fixed size
 * Collector
 .play -edit concurrency/go_7.go /START OMIT/,/END OMIT/
 
+* Simple Server
+.play -edit webserver/server.go /START OMIT/,/END OMIT/
+
 #* Edit Run code?
 #.play -edit types/structs.go
