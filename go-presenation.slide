@@ -144,7 +144,7 @@ Arrays sind fixed size
 
 * Errors
 .play -edit types/errors.go
-- Niemals Fehler ignorieren
+- Always
 - Fehler sind ein ganz normaler Wert
 - Fehler sind normalerweise der letzte Rückgabewert
 - Early exit not - Happy path if-Spaghetti <<---- WHAT?

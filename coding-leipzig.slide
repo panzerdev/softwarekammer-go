@@ -1,0 +1,207 @@
+Go in 30 min
+
+by Michael Panzer
+https://twitter.com/panzer_michael
+
+* About me
+- started with Java/Android
+- Go for about 4 years for fun and about 2 for prod
+
+* What's up today?
+- Basic language constructs
+- Examples...
+
+* Go Tool (current 1.11)
+- mod - dependency management with modules (since 1.11)
+- fmt - apply default Code Style
+    $ go fmt main.go
+- run - run main.go file
+    $ go run main.go
+- build - builds executable
+    $ go build
+    # Crosscompiling
+    $ env GOOS=windows GOARCH=amd64 go build # win 64bit
+    $ env GOOS=linux GOARCH=arm GOARM=5 go build # raspi 32bit
+
+* Hello World
+.play hello/hello-world.go
+
+
+* Hello World
+.play hello/hello-world.go
+
+Packages
+
+    package main
+
+- Code organized in packages
+- One Package 1 to n go files are in the same package
+- Last folder name must be equal to package name
+
+* Hello World
+.play hello/hello-world.go
+
+Call things from package
+
+    fmt.Println("Hello World!")
+
+- Case on first letter defines package private/public
+    fmt.Println("Hello World!") <- callable outside the package
+
+    fmt.println("Hello World!") <- callable ONLY inside the package
+
+
+* Hello World
+.play hello/hello-world.go
+
+Import
+
+    import "fmt"
+    - or multiple -
+    import (
+        "fmt"
+        "os"
+    )
+
+* Hello World
+.play hello/hello-world.go
+
+    func main() {}
+
+- Main func entrypoint to program
+- Program ends when main returns
+- Everything running outside will be just killed
+
+* Build-in types
+
+    bool
+
+    string
+
+    int  int8  int16  int32  int64
+    uint uint8 uint16 uint32 uint64 uintptr
+
+    byte // alias for uint8
+
+    rune // alias for int32
+         // represents a Unicode code point
+
+    float32 float64
+
+    complex64 complex128
+
+* Variables
+.play types/var.go
+- Not compiling with unused variable
+
+* Functions
+
+    func (N|n)ame(name type) (type)
+
+- multiple input and multiple returns
+- first name then type of the parameter
+
+.code types/func_1.go
+
+* Functions
+
+Functions can be used like any other variable
+.code types/func_4.go
+
+* Functions
+
+func can be passed as parameter to another func
+
+.code types/func_2.go
+.code types/func_3.go
+
+* Structs
+.code types/structs_1.go
+
+- can have multiple fileds of any type
+- NO inheritance
+- NO constructor
+
+.code types/structs_2.go
+- trailing comma
+
+* Structs
+.play types/structs_0.go /START OMIT/,/END OMIT/
+
+* Structs
+.play types/structs_3.go /START OMIT/,/END OMIT/
+
+* Structs
+.play types/structs_4.go /START OMIT/,/END OMIT/
+
+* Pointer
+.play types/pointer.go
+
+* Slices
+.play types/slice_1.go
+
+* For
+.code control/iter_0.go
+
+* For range
+.play control/range.go
+
+* If
+.play control/if.go
+
+* Switch
+.play control/switch_1.go
+
+* Maps
+.play types/maps_1.go
+
+* Interface
+.play -edit interfaces/animal.go /START OMIT/,/END OMIT/
+
+* Errors
+.play -edit types/errors.go
+- Errors are values
+- Always handle errors
+- Usually the last return value if there can be an error
+- Early exit not - Happy path if-Spaghetti <<---- WHAT?
+
+* Go Go Go
+
+- Goroutine are used for concurrency
+- Any func can be executed executed concurrently
+- Keyword is -> go
+    go func()
+- very low overhead so a lot of Goroutines are possible
+- async IO (looks blocking is non blocking)
+
+* Let's Go
+.play -edit concurrency/go_1.go
+
+* Let's Go.. Wait..
+.play -edit concurrency/go_2.go
+
+* WaitGroup
+.play -edit concurrency/go_4.go /START OMIT/,/END OMIT/
+
+* Channels
+    don't communicate by sharing memory share memory by communicating
+- Channel is typed with a bool for example
+    c := make(chan bool)
+- Channel is like a Stack (with optional size)
+- Pop on one side, Push on other side
+    c <- true (push - write)
+    v := <- c (pop - read)
+- Pop/Push bloking when size 0
+    c <- true (will block forever)
+
+* Channels
+.play -edit concurrency/go_5.go /START OMIT/,/END OMIT/
+
+* Select Channels
+.play -edit concurrency/go_6.go /START OMIT/,/END OMIT/
+
+* Collector
+.play -edit concurrency/go_8.go /START OMIT/,/END OMIT/
+
+* Simple Server
+.play -edit webserver/server.go /START OMIT/,/END OMIT/

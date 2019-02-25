@@ -10,5 +10,5 @@ $ go install golang.org/x/tools/cmd/present
 ```
 - Start presenting server locally in root folder
 ```
-$ present
+$ present -http localhost:3999
 ```
