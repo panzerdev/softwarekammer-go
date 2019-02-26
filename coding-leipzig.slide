@@ -2,6 +2,7 @@ Go in 30 min
 
 by Michael Panzer
 https://twitter.com/panzer_michael
+https://www.meetup.com/de-DE/Leipzig-Golang-and-Cloud/
 
 * About me
 - started with Java/Android
@@ -205,3 +206,10 @@ func can be passed as parameter to another func
 
 * Simple Server
 .play -edit webserver/server.go /START OMIT/,/END OMIT/
+
+* Thrilled?
+
+Leipzig Golang and Cloud Native Meetup #2
+Freitag, 15. März 2019
+
+.image cloud-native-and-golang-leipzig-preview.png
